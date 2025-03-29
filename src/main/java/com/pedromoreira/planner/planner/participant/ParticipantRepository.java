@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.participant;
+package com.pedromoreira.planner.planner.participant;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

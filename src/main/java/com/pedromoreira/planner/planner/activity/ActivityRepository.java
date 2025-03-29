@@ -1,6 +1,6 @@
-package com.pedromoreira.planner.activity;
+package com.pedromoreira.planner.planner.activity;
 
-import com.pedromoreira.planner.trip.Trip;
+import com.pedromoreira.planner.planner.trip.Trip;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

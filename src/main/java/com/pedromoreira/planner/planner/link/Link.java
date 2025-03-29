@@ -1,6 +1,6 @@
-package com.pedromoreira.planner.link;
+package com.pedromoreira.planner.planner.link;
 
-import com.pedromoreira.planner.trip.Trip;
+import com.pedromoreira.planner.planner.trip.Trip;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,4 +30,10 @@ public class Link {
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
     private Trip trip;
+
+    public Link(String title, String url, Trip trip){
+        this.title = title;
+        this.url = url;
+        this.trip = trip;
+    }
 }

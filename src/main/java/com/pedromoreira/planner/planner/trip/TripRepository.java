@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.trip;
+package com.pedromoreira.planner.planner.trip;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.participant;
+package com.pedromoreira.planner.planner.participant;
 
 public record ParticipantRequestPayload (String name, String email){
 }

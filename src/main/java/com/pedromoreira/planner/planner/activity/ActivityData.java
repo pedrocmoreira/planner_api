@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.activity;
+package com.pedromoreira.planner.planner.activity;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

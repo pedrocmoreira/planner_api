@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.participant;
+package com.pedromoreira.planner.planner.participant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

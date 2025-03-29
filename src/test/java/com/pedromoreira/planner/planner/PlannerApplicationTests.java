@@ -1,4 +1,4 @@
-package com.pedromoreira.planner;
+package com.pedromoreira.planner.planner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

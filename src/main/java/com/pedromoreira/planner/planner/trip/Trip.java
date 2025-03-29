@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.trip;
+package com.pedromoreira.planner.planner.trip;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

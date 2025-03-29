@@ -1,14 +1,17 @@
-package com.pedromoreira.planner.trip;
+package com.pedromoreira.planner.planner.trip;
 
-import com.pedromoreira.planner.activity.ActivityData;
-import com.pedromoreira.planner.activity.ActivityRequestPayload;
-import com.pedromoreira.planner.activity.ActivityResponse;
-import com.pedromoreira.planner.activity.ActivityService;
-import com.pedromoreira.planner.participant.ParticipantCreateResponse;
-import com.pedromoreira.planner.participant.ParticipantData;
-import com.pedromoreira.planner.participant.ParticipantRequestPayload;
-import com.pedromoreira.planner.participant.ParticipantService;
-import com.pedromoreira.planner.planner.participant.*;
+import com.pedromoreira.planner.planner.activity.ActivityData;
+import com.pedromoreira.planner.planner.activity.ActivityRequestPayload;
+import com.pedromoreira.planner.planner.activity.ActivityResponse;
+import com.pedromoreira.planner.planner.activity.ActivityService;
+import com.pedromoreira.planner.planner.link.LinkData;
+import com.pedromoreira.planner.planner.link.LinkRequestPayload;
+import com.pedromoreira.planner.planner.link.LinkResponse;
+import com.pedromoreira.planner.planner.link.LinkService;
+import com.pedromoreira.planner.planner.participant.ParticipantCreateResponse;
+import com.pedromoreira.planner.planner.participant.ParticipantData;
+import com.pedromoreira.planner.planner.participant.ParticipantRequestPayload;
+import com.pedromoreira.planner.planner.participant.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +33,10 @@ public class TripController {
     private ActivityService activityService;
 
     @Autowired
-    private TripRepository repository;
+    private LinkService linkService;
 
+    @Autowired
+    private TripRepository repository;
 
     @PostMapping
     public ResponseEntity<TripCreateResponse> createTrip(@RequestBody TripRequestPayload payload){
@@ -43,6 +48,8 @@ public class TripController {
 
         return ResponseEntity.ok(new TripCreateResponse((newTrip.getId())));
     }
+
+    // Trip
 
     @GetMapping("/{id}")
     public ResponseEntity<Trip> getTripDetails(@PathVariable UUID id){
@@ -87,6 +94,8 @@ public class TripController {
         return ResponseEntity.notFound().build();
     }
 
+    //Participants
+
     @PostMapping("/{id}/invite")
      public ResponseEntity<ParticipantCreateResponse> inviteParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
         Optional<Trip> trip = this.repository.findById(id);
@@ -110,6 +119,8 @@ public class TripController {
         return ResponseEntity.ok(participantList);
     }
 
+    //Activities
+
     @PostMapping("/{id}/activities")
     public ResponseEntity<ActivityResponse> registerActivity(@PathVariable UUID id, @RequestBody ActivityRequestPayload payload){
         Optional<Trip> trip = this.repository.findById(id);
@@ -130,4 +141,28 @@ public class TripController {
 
         return ResponseEntity.ok(activityDataList);
     }
+
+    //Links
+
+    @PostMapping("/{id}/links")
+    public ResponseEntity<LinkResponse> registerLink(@PathVariable UUID id, @RequestBody LinkRequestPayload payload){
+        Optional<Trip> trip = this.repository.findById(id);
+
+        if(trip.isPresent()){
+            Trip rawTrip = trip.get();
+
+            LinkResponse linkResponse = this.linkService.registerLink(payload, rawTrip);
+
+            return ResponseEntity.ok(linkResponse);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/links")
+    public  ResponseEntity<List<LinkData>> getAllLinks(@PathVariable UUID id){
+        List<LinkData> linkDataList = this.linkService.getAllLinksFromTrip(id);
+
+        return ResponseEntity.ok(linkDataList);
+    }
+
 }

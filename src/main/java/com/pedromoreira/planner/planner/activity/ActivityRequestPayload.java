@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.activity;
+package com.pedromoreira.planner.planner.activity;
 
 public record ActivityRequestPayload(String title, String occurs_at) {
 }
