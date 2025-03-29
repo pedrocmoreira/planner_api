@@ -1,6 +1,6 @@
-package com.pedromoreira.planner.planner.participant;
+package com.pedromoreira.planner.participant;
 
-import com.pedromoreira.planner.planner.trip.Trip;
+import com.pedromoreira.planner.trip.Trip;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

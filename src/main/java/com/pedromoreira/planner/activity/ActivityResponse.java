@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.planner.activities;
+package com.pedromoreira.planner.activity;
 
 import java.util.UUID;
 

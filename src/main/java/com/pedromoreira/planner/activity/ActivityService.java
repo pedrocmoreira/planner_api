@@ -1,7 +1,6 @@
-package com.pedromoreira.planner.planner.activities;
+package com.pedromoreira.planner.activity;
 
-import com.pedromoreira.planner.planner.participant.ParticipantData;
-import com.pedromoreira.planner.planner.trip.Trip;
+import com.pedromoreira.planner.trip.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

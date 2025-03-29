@@ -1,9 +1,13 @@
-package com.pedromoreira.planner.planner.trip;
+package com.pedromoreira.planner.trip;
 
-import com.pedromoreira.planner.planner.activities.ActivityData;
-import com.pedromoreira.planner.planner.activities.ActivityRequestPayload;
-import com.pedromoreira.planner.planner.activities.ActivityResponse;
-import com.pedromoreira.planner.planner.activities.ActivityService;
+import com.pedromoreira.planner.activity.ActivityData;
+import com.pedromoreira.planner.activity.ActivityRequestPayload;
+import com.pedromoreira.planner.activity.ActivityResponse;
+import com.pedromoreira.planner.activity.ActivityService;
+import com.pedromoreira.planner.participant.ParticipantCreateResponse;
+import com.pedromoreira.planner.participant.ParticipantData;
+import com.pedromoreira.planner.participant.ParticipantRequestPayload;
+import com.pedromoreira.planner.participant.ParticipantService;
 import com.pedromoreira.planner.planner.participant.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

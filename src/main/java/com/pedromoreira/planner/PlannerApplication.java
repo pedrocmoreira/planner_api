@@ -1,4 +1,4 @@
-package com.pedromoreira.planner.planner;
+package com.pedromoreira.planner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
